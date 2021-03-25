@@ -1,6 +1,6 @@
 package com.gmail.pkotionov.tests;
 
-import com.gmail.pkotionov.data.Country;
+import com.gmail.pkotionov.data.CountryCurrency;
 import com.gmail.pkotionov.pages.CurrencyCalculatorPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ public class CurrencyExchangeLossTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
 
         CurrencyCalculatorPage calculatorPage = new CurrencyCalculatorPage();
-        calculatorPage.selectSellCurrency(Country.SPAIN.getCurrency());
+        calculatorPage.selectSellCurrency(CountryCurrency.SPAIN.getCurrency());
 
         calculatorPage.interSellAmount(VALUE);
 

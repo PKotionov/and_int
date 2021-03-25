@@ -3,17 +3,16 @@ package com.gmail.pkotionov.pages;
 import com.gmail.pkotionov.components.CountryDropdownComponent;
 import com.gmail.pkotionov.components.CurrencyDropdownComponent;
 import com.gmail.pkotionov.components.CurrencyTableComponent;
-import com.gmail.pkotionov.driver.DriverProvider;
 import com.gmail.pkotionov.utils.ScrollHelper;
 import com.gmail.pkotionov.utils.WaitHelper;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
+
+import static com.gmail.pkotionov.utils.TimeOuts.MINIMAL_ELEMENT_TIMEOUT;
+import static com.gmail.pkotionov.utils.TimeOuts.PAGE_LOAD_TIMEOUT;
 
 public class CurrencyCalculatorPage extends BasePage {
 
@@ -77,7 +76,7 @@ public class CurrencyCalculatorPage extends BasePage {
     public void setBuyAmount(String amount) {
         logger.info("Set buy amount: " + amount);
         ScrollHelper.scrollToElement(buyField);
-        WaitHelper.waitForElementStayInvisible(pageLoaderElement, 10);
+        WaitHelper.waitForElementStayInvisible(pageLoaderElement, PAGE_LOAD_TIMEOUT);
         buyField.clear();
         buyField.sendKeys(amount);
     }
@@ -101,7 +100,7 @@ public class CurrencyCalculatorPage extends BasePage {
 
     public String getSellCurrency() {
         ScrollHelper.scrollToElement(sellCurrencyTextElement);
-        WaitHelper.waitForElementHasText(sellCurrencyTextElement, 10);
+        WaitHelper.waitForElementHasText(sellCurrencyTextElement, PAGE_LOAD_TIMEOUT);
         return sellCurrencyTextElement.getText();
     }
 
@@ -149,13 +148,14 @@ public class CurrencyCalculatorPage extends BasePage {
 
         //remove brackets
         swedBankAmountLoss = swedBankAmountLoss.substring(1, swedBankAmountLoss.length() - 1);
+
         logger.info("Got SwedBank amount loss: " + swedBankAmountLoss);
         return new BigDecimal(swedBankAmountLoss);
     }
 
     private boolean waitForPageLoading() {
         logger.debug("Waiting page is loading");
-        WaitHelper.waitForElementPresence(pageLoaderElement, 1);
-        return WaitHelper.waitForElementStayInvisible(pageLoaderElement, 10);
+        WaitHelper.waitForElementPresence(pageLoaderElement, MINIMAL_ELEMENT_TIMEOUT);
+        return WaitHelper.waitForElementStayInvisible(pageLoaderElement, PAGE_LOAD_TIMEOUT);
     }
 }

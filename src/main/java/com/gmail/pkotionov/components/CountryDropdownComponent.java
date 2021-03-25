@@ -1,6 +1,6 @@
 package com.gmail.pkotionov.components;
 
-import com.gmail.pkotionov.data.Country;
+import com.gmail.pkotionov.data.CountryCurrency;
 import com.gmail.pkotionov.utils.ScrollHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
@@ -24,7 +24,7 @@ public class CountryDropdownComponent extends BaseComponent {
         super(element);
     }
 
-    public void selectCountry(Country country){
+    public void selectCountry(CountryCurrency country){
         ScrollHelper.scrollToBottom();
         selectedCountryField.click();
 

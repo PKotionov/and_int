@@ -20,13 +20,6 @@ public class CurrencyRowTableComponent extends BaseComponent {
     @FindBy(xpath = ".//td[@data-title='Paysera rate']//span[@class='ng-binding']")
     private WebElement alternativeBankAmountElement;
 
-//    private final By officialRateLocator = By.cssSelector("td[data-title='Official rate'] span.ng-binding");
-//    private final By alternativeRateLocator = By.cssSelector("td[data-ng-repeat-start='provider in currencyExchangeVM.supportedProviders']");
-//    private final By swedBankAmountLocator = By.xpath("//td[@data-title='Swedbank amount']//span[@class='ng-binding']");
-//    private final By swedBankAmountLossLocator = By.xpath("//td[@data-title='Swedbank amount']//span[contains(@class, 'other-bank-loss')]");
-//    private final By alternativeBankAmountLocator = By.xpath("//td[@data-title='Paysera rate']//span[@class='ng-binding']");
-
-
     public CurrencyRowTableComponent(WebElement element) {
         super(element);
     }

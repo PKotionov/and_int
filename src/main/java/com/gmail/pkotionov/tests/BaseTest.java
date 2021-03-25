@@ -1,6 +1,7 @@
 package com.gmail.pkotionov.tests;
 
 import com.gmail.pkotionov.driver.DriverProvider;
+import com.gmail.pkotionov.utils.PropertyHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +11,11 @@ public class BaseTest {
 
     protected final Logger logger = LogManager.getRootLogger();
 
-    private final String START_URL = "https://www.paysera.lt/v2/en-LT/fees/currency-conversion-calculator#/";
+    private final String START_URL = PropertyHelper.getProperty("start.url");
 
     @BeforeSuite
     public void beforeSuit(){
-        System.setProperty("log4j.configurationFile", "src\\main\\resources\\log4j2.xml");
+        System.setProperty("log4j.configurationFile", PropertyHelper.getProperty("log.config.file"));
     }
 
     @BeforeClass
