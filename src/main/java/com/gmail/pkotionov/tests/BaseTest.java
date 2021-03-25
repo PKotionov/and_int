@@ -14,7 +14,7 @@ public class BaseTest {
     private final String START_URL = PropertyHelper.getProperty("start.url");
 
     @BeforeSuite
-    public void beforeSuit(){
+    public void beforeSuit() {
         System.setProperty("log4j.configurationFile", PropertyHelper.getProperty("log.config.file"));
     }
 
@@ -25,8 +25,8 @@ public class BaseTest {
         driver.get(START_URL);
     }
 
-    @AfterSuite
-    public void afterSuit() {
+    @AfterClass
+    public void afterClass() {
         logger.info("Tear down driver");
         DriverProvider.tearDown();
     }
