@@ -11,7 +11,7 @@ public class DriverProvider {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            driver = DriverFactory.createDriver();
+            driver = DriverFactory.launchDriver();
         }
         return driver;
     }
