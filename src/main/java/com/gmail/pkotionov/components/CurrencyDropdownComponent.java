@@ -1,5 +1,6 @@
 package com.gmail.pkotionov.components;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,6 +12,7 @@ public class CurrencyDropdownComponent extends BaseComponent {
         super(element);
     }
 
+    @Step("Select country '{currency}'")
     public void selectCurrency(String currency) {
         By currencyLocator = getCurrencyLocator(currency);
         WebElement currencyElement = getComponentElement().findElement(currencyLocator);

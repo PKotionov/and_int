@@ -5,6 +5,7 @@ import com.gmail.pkotionov.components.CurrencyDropdownComponent;
 import com.gmail.pkotionov.components.CurrencyTableComponent;
 import com.gmail.pkotionov.utils.ScrollHelper;
 import com.gmail.pkotionov.utils.WaitHelper;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,6 +50,7 @@ public class CurrencyCalculatorPage extends BasePage {
     @FindBy(css = "div[data-ng-show='currencyExchangeVM.loading']")
     private WebElement pageLoaderElement;
 
+    @Step("Set sell amount: {amount}")
     public void setSellAmount(String amount) {
         logger.info("Set sell amount: " + amount);
         ScrollHelper.scrollToElement(sellField);
@@ -63,7 +65,8 @@ public class CurrencyCalculatorPage extends BasePage {
         waitForPageLoading();
     }
 
-    public void clickToSellAmount() {
+    @Step("Click on Sell amount field")
+    public void clickOnSellAmount() {
         logger.info("Click to sell amount field");
         ScrollHelper.scrollToElement(sellField);
         sellField.click();
@@ -73,6 +76,7 @@ public class CurrencyCalculatorPage extends BasePage {
         return sellField.getAttribute("value");
     }
 
+    @Step("Set buy amount: {amount}")
     public void setBuyAmount(String amount) {
         logger.info("Set buy amount: " + amount);
         ScrollHelper.scrollToElement(buyField);
@@ -81,7 +85,8 @@ public class CurrencyCalculatorPage extends BasePage {
         buyField.sendKeys(amount);
     }
 
-    public void clickToBuyAmount() {
+    @Step("Click on Buy amount field")
+    public void clickOnBuyAmount() {
         logger.info("Click to buy amount");
         ScrollHelper.scrollToElement(buyField);
         buyField.click();
@@ -91,6 +96,7 @@ public class CurrencyCalculatorPage extends BasePage {
         return buyField.getAttribute("value");
     }
 
+    @Step("Open Country dropdown")
     public CountryDropdownComponent openCountryDropdown() {
         logger.info("Open Country dropdown");
         ScrollHelper.scrollToElement(selectCountryIconElement);
@@ -104,6 +110,7 @@ public class CurrencyCalculatorPage extends BasePage {
         return sellCurrencyTextElement.getText();
     }
 
+    @Step("Select Sell currency '{currency}'")
     public void selectSellCurrency(String currency) {
         logger.info("Select Sell currency: " + currency);
         if (!getSellCurrency().equals(currency)) {

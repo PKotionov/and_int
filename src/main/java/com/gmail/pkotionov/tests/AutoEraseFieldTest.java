@@ -1,12 +1,16 @@
 package com.gmail.pkotionov.tests;
 
+import com.gmail.pkotionov.logging.DefaultListener;
+import com.gmail.pkotionov.logging.SoftVerify;
 import com.gmail.pkotionov.pages.CurrencyCalculatorPage;
+import io.qameta.allure.Description;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
+@Listeners(DefaultListener.class)
 public class AutoEraseFieldTest extends BaseTest {
 
     @DataProvider(name = "currencyValueDataProvider")
@@ -25,58 +29,62 @@ public class AutoEraseFieldTest extends BaseTest {
     }
 
     @Test(dataProvider = "currencyValueDataProvider")
+    @Description("'Sell' amount box is being emptied when fills 'Buy' amount")
     public void verifySellAmountAutoErasing(String value) {
-        SoftAssert softAssert = new SoftAssert();
+        SoftVerify softVerify = new SoftVerify();
 
         CurrencyCalculatorPage calculatorPage = new CurrencyCalculatorPage();
         calculatorPage.setSellAmount(value);
         calculatorPage.setBuyAmount(value);
 
-        softAssert.assertEquals(calculatorPage.getSellAmount(), Strings.EMPTY, "Sell value is not empty");
+        softVerify.assertEquals(calculatorPage.getSellAmount(), Strings.EMPTY, "Sell value is emptied");
 
-        softAssert.assertAll();
+        softVerify.assertAll();
     }
 
     @Test(dataProvider = "currencyValueDataProvider")
+    @Description("'Buy' amount box is being emptied when fills 'Sell' amount")
     public void verifyBuyAmountAutoErasing(String value) {
-        SoftAssert softAssert = new SoftAssert();
+        SoftVerify softVerify = new SoftVerify();
 
         CurrencyCalculatorPage calculatorPage = new CurrencyCalculatorPage();
         calculatorPage.setBuyAmount(value);
         calculatorPage.setSellAmount(value);
 
-        softAssert.assertEquals(calculatorPage.getBuyAmount(), Strings.EMPTY, "Buy value is not empty");
+        softVerify.assertEquals(calculatorPage.getBuyAmount(), Strings.EMPTY, "Buy value is emptied");
 
-        softAssert.assertAll();
+        softVerify.assertAll();
     }
 
     @Test
+    @Description("'Sell' amount box is not being emptied when clicks on 'Buy' amount")
     public void verifySellAmountIsNotErasedAfterClickToBuyAmount() {
-        SoftAssert softAssert = new SoftAssert();
+        SoftVerify softVerify = new SoftVerify();
 
         CurrencyCalculatorPage calculatorPage = new CurrencyCalculatorPage();
 
         String value = RandomStringUtils.randomAlphanumeric(3);
         calculatorPage.setSellAmount(value);
-        calculatorPage.clickToBuyAmount();
+        calculatorPage.clickOnBuyAmount();
 
-        softAssert.assertEquals(calculatorPage.getSellAmount(), value, "Sell value is erased");
+        softVerify.assertEquals(calculatorPage.getSellAmount(), value, "Sell value is not emptied");
 
-        softAssert.assertAll();
+        softVerify.assertAll();
     }
 
     @Test
+    @Description("'Buy' amount box is not being emptied when clicks on 'Sell' amount")
     public void verifyBuyAmountIsNotErasedAfterClickToSellAmount() {
-        SoftAssert softAssert = new SoftAssert();
+        SoftVerify softVerify = new SoftVerify();
 
         CurrencyCalculatorPage calculatorPage = new CurrencyCalculatorPage();
 
         String value = RandomStringUtils.randomAlphanumeric(3);
         calculatorPage.setBuyAmount(value);
-        calculatorPage.clickToSellAmount();
+        calculatorPage.clickOnSellAmount();
 
-        softAssert.assertEquals(calculatorPage.getBuyAmount(), value, "Buy value is erased");
+        softVerify.assertEquals(calculatorPage.getBuyAmount(), value, "Buy value is not emptied");
 
-        softAssert.assertAll();
+        softVerify.assertAll();
     }
 }

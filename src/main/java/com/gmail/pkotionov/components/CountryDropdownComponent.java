@@ -2,6 +2,7 @@ package com.gmail.pkotionov.components;
 
 import com.gmail.pkotionov.data.CountryCurrency;
 import com.gmail.pkotionov.utils.ScrollHelper;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,7 @@ public class CountryDropdownComponent extends BaseComponent {
         super(element);
     }
 
+    @Step("Select country '{country.countryName}'")
     public void selectCountry(CountryCurrency country){
         ScrollHelper.scrollToBottom();
         selectedCountryField.click();

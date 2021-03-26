@@ -2,6 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All tests suite" verbose="2" configfailurepolicy="continue">
 
+    <listeners>
+        <listener class-name="com.gmail.pkotionov.logging.DefaultListener"/>
+    </listeners>
     <test name="All tests suite">
         <packages>
             <package name="com.gmail.pkotionov.tests.*"/>
