@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PropertyHelper {
 
-    private static final String PROPERTIES_PATH = "src\\main\\resources\\project_data.properties";
+    private static final String PROPERTIES_PATH = "src/main/resources/project_data.properties";
 
     public static String getProperty(String propertyName) {
         Properties properties = new Properties();
