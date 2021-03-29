@@ -2,6 +2,7 @@ package com.gmail.pkotionov.utils;
 
 import com.gmail.pkotionov.driver.DriverProvider;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,7 @@ public class WaitHelper {
 
     public static WebElement waitForElementPresence(WebElement element, int timeout) {
         return new WebDriverWait(DriverProvider.getDriver(), timeout)
+                .ignoring(StaleElementReferenceException.class)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 

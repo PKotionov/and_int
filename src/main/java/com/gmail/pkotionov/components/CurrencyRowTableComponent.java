@@ -17,7 +17,7 @@ public class CurrencyRowTableComponent extends BaseComponent {
     @FindBy(xpath = ".//td[@data-title='Swedbank amount']//span[contains(@class, 'other-bank-loss')]")
     private WebElement swedBankAmountLossElement;
 
-    @FindBy(xpath = ".//td[@data-title='Paysera rate']//span[@class='ng-binding']")
+    @FindBy(xpath = ".//td[contains(@data-title, 'sera rate')]//span[@class='ng-binding']")
     private WebElement alternativeBankAmountElement;
 
     public CurrencyRowTableComponent(WebElement element) {
