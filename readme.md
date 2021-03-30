@@ -6,7 +6,7 @@
 - Log4j
 - Allure
 
-## Before run
+## Preparation before run
 1. Add appropriate webdriver (chromedriver or geckodriver):
 - for running on mac OS to package: {project_folder}/src/main/resources/driver/mac  
 - for running on win OS to package: {project_folder}/src/main/resources/driver/win
