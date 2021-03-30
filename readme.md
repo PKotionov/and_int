@@ -7,11 +7,10 @@
 - Allure
 
 ## Before run
-1. Add appropriate webdriver (chromedriver or geckodriver) to:
-- for running on mac OS {project_folder}/src/main/resources/driver/mac  
-- for running on win OS {project_folder}/src/main/resources/driver/win
-2. Select browser for running:
-change properties file {project_folder}/src/main/resources/project_data.properties:
+1. Add appropriate webdriver (chromedriver or geckodriver):
+- for running on mac OS to package: {project_folder}/src/main/resources/driver/mac  
+- for running on win OS to package: {project_folder}/src/main/resources/driver/win
+2. For select browser for tests running, properties file {project_folder}/src/main/resources/project_data.properties needs to be changed:
 - for running on Mozilla: driver=firefox
 - for running on Chrome: driver=chrome
 
