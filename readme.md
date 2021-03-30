@@ -16,9 +16,9 @@ change properties file {project_folder}/src/main/resources/project_data.properti
 - for running on Chrome: driver=chrome
 
 ## How to run
-1. To run next command in terminal:
+1. Execute the command in terminal to run all tests:
 mvn test
-2. Next command for report view:
+2. Execute the command in terminal to generate Allure report:
 allure serve allure-results
 *But Allure needs to be installed before (https://docs.qameta.io/allure/)
 
