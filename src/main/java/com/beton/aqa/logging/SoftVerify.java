@@ -1,4 +1,4 @@
-package com.gmail.pkotionov.logging;
+package com.beton.aqa.logging;
 
 import io.qameta.allure.Step;
 import org.testng.asserts.SoftAssert;

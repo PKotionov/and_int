@@ -3,11 +3,11 @@
 <suite name="All tests suite" verbose="2" configfailurepolicy="continue">
 
     <listeners>
-        <listener class-name="com.gmail.pkotionov.logging.DefaultListener"/>
+        <listener class-name="com.beton.aqa.logging.DefaultListener"/>
     </listeners>
     <test name="All tests suite">
         <packages>
-            <package name="com.gmail.pkotionov.tests.*"/>
+            <package name="com.beton.aqa.tests.*"/>
         </packages>
     </test>
 </suite>

@@ -1,8 +1,9 @@
-package com.gmail.pkotionov.tests;
+package com.beton.aqa.tests;
 
-import com.gmail.pkotionov.driver.DriverProvider;
-import com.gmail.pkotionov.logging.DefaultListener;
-import com.gmail.pkotionov.utils.PropertyHelper;
+import com.beton.aqa.driver.DriverProvider;
+import com.beton.aqa.logging.DefaultListener;
+import com.beton.aqa.logging.SoftVerify;
+import com.beton.aqa.utils.PropertyHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +16,8 @@ import org.testng.annotations.Listeners;
 public class BaseTest {
 
     protected final Logger logger = LogManager.getRootLogger();
-
     private final String START_URL = PropertyHelper.getProperty("start.url");
+    protected SoftVerify softVerify;
 
     @BeforeSuite
     public void beforeSuit() {
@@ -25,6 +26,7 @@ public class BaseTest {
 
     @BeforeClass
     public void beforeClass() {
+        softVerify = new SoftVerify();
         WebDriver driver = DriverProvider.getDriver();
         logger.info("Open url: " + START_URL);
         driver.get(START_URL);
@@ -34,5 +36,6 @@ public class BaseTest {
     public void afterClass() {
         logger.info("Tear down driver");
         DriverProvider.tearDown();
+        softVerify.assertAll();
     }
 }

@@ -1,4 +1,4 @@
-package com.gmail.pkotionov.utils;
+package com.beton.aqa.utils;
 
 import java.io.File;
 import java.io.FileReader;

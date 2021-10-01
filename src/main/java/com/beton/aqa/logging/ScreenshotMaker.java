@@ -1,6 +1,6 @@
-package com.gmail.pkotionov.logging;
+package com.beton.aqa.logging;
 
-import com.gmail.pkotionov.driver.DriverProvider;
+import com.beton.aqa.driver.DriverProvider;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,7 +11,7 @@ public class ScreenshotMaker {
     private ScreenshotMaker() {
     }
 
-    public static void makeScreenshot(){
+    public static void makeScreenshot() {
         new ScreenshotMaker().saveScreenshot();
     }
 
@@ -20,5 +20,4 @@ public class ScreenshotMaker {
         WebDriver driver = DriverProvider.getDriver();
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-
 }

@@ -1,4 +1,4 @@
-package com.gmail.pkotionov.driver;
+package com.beton.aqa.driver;
 
 import org.openqa.selenium.WebDriver;
 

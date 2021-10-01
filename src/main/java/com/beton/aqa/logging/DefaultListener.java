@@ -1,4 +1,4 @@
-package com.gmail.pkotionov.logging;
+package com.beton.aqa.logging;
 
 import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;

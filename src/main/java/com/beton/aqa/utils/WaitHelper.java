@@ -1,6 +1,6 @@
-package com.gmail.pkotionov.utils;
+package com.beton.aqa.utils;
 
-import com.gmail.pkotionov.driver.DriverProvider;
+import com.beton.aqa.driver.DriverProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
