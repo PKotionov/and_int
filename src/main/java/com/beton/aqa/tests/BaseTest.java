@@ -28,13 +28,13 @@ public class BaseTest {
     public void beforeClass() {
         softVerify = new SoftVerify();
         WebDriver driver = DriverProvider.getDriver();
-        logger.info("Open url: " + START_URL);
+        logger.debug("Open url: " + START_URL);
         driver.get(START_URL);
     }
 
     @AfterClass
     public void afterClass() {
-        logger.info("Tear down driver");
+        logger.debug("Tear down driver");
         DriverProvider.tearDown();
         softVerify.assertAll();
     }

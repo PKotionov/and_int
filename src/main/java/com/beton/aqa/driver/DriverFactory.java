@@ -5,7 +5,7 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.beton.aqa.data.Global.WEBDRIVER_TYPE;
+import static com.beton.aqa.data.Global.WEB_DRIVER_TYPE;
 import static com.beton.aqa.utils.Timeouts.ELEMENT_TIMEOUT;
 import static com.beton.aqa.utils.Timeouts.PAGE_LOAD_TIMEOUT;
 
@@ -13,9 +13,9 @@ public class DriverFactory {
 
     static WebDriver launchDriver() {
         WebDriver driver;
-        if (WEBDRIVER_TYPE.equalsIgnoreCase(BrowserType.CHROME)) {
+        if (WEB_DRIVER_TYPE.equalsIgnoreCase(BrowserType.GOOGLECHROME)) {
             driver = ChromeLauncher.createDriver();
-        } else if (WEBDRIVER_TYPE.equalsIgnoreCase(BrowserType.FIREFOX)) {
+        } else if (WEB_DRIVER_TYPE.equalsIgnoreCase(BrowserType.FIREFOX)) {
             driver = FirefoxLauncher.createDriver();
         } else {
             // Selenoid

@@ -1,13 +1,17 @@
 package com.beton.aqa.pages;
 
+import com.beton.aqa.annotates.PageName;
+import com.beton.aqa.annotates.Required;
 import com.beton.aqa.components.LoginFormComponent;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HighlightsPage extends BasePage {
+@PageName("Live")
+public class LivePage extends BasePage {
 
-    @FindBy(xpath = "//span[text()='Log in']")
+    @Required()
+    @FindBy(css = "button.Header-loginButton-29")
     private WebElement loginButton;
 
     @FindBy(xpath = "//span[text()='Accept']/following-sibling::span")
@@ -16,8 +20,10 @@ public class HighlightsPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'loginForm')]")
     private WebElement loginFormElement;
 
-    public HighlightsPage() {
-        super();
+    @FindBy(xpath = "//span[contains(@class, 'UserDropdownMenu-helloLable')]")
+    private WebElement greetingMessageElement;
+
+    public LivePage() {
         acceptCookies();
     }
 
@@ -32,5 +38,9 @@ public class HighlightsPage extends BasePage {
         loginButton.click();
         LoginFormComponent loginFormComponent = new LoginFormComponent(loginFormElement);
         loginFormComponent.login();
+    }
+
+    public String getGreetingText() {
+        return greetingMessageElement.getText();
     }
 }
